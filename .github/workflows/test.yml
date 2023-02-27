@@ -30,7 +30,6 @@ jobs:
       id: pnpm-install
       with:
         version: 7
-        run_install: false
 
     - name: Get pnpm store directory
       id: pnpm-cache
@@ -46,6 +45,5 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-pnpm-store-
 
-    - run: pnpm i --frozen-lockfile
     - run: pnpm run lint
     - run: pnpm run test
