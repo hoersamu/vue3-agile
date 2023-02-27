@@ -44,12 +44,14 @@ jobs:
 
       - run: cd packages/docs
       - run: pnpm install --frozen-lockfile --filter .
+        working-directory: packages/docs
       - name: Build
         run: pnpm run docs:build
+        working-directory: packages/docs
       - uses: actions/configure-pages@v2
       - uses: actions/upload-pages-artifact@v1
         with:
-          path: src/.vitepress/dist
+          path: packages/docs/.vitepress/dist
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v1
