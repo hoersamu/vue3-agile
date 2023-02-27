@@ -1,35 +1,32 @@
-# vue-agile
+# vue3-agile
 
-[![](https://img.shields.io/npm/v/vue-agile.svg?style=flat-square&logo=npm)](https://www.npmjs.com/package/vue-agile) [![](https://img.shields.io/npm/l/vue-agile.svg?style=flat-square&logo=github)](https://github.com/lukaszflorczak/vue-agile/blob/master/LICENSE) [![](https://img.shields.io/codacy/grade/509a536ebcf64a71a119e988bd888af2.svg?style=flat-square&logo=codacy)](https://app.codacy.com/project/lukaszflorczak/vue-agile/dashboard) [![](https://img.shields.io/npm/dm/vue-agile.svg?style=flat-square&logo=npm)](https://www.npmjs.com/package/vue-agile) [![](https://img.shields.io/badge/buy%20me%20a%20coffee-+3€-red.svg?style=flat-square&logo=ko-fi)](http://ko-fi.com/lukaszflorczak)
+[![](https://img.shields.io/npm/v/vue3-agile.svg?style=flat-square&logo=npm)](https://www.npmjs.com/package/vue3-agile) [![](https://img.shields.io/npm/l/vue3-agile.svg?style=flat-square&logo=github)](https://github.com/hoersamu/vue3-agile/blob/master/LICENSE) [![](https://img.shields.io/npm/dm/vue-agile.svg?style=flat-square&logo=npm)](https://www.npmjs.com/package/vue-agile)
 
+This is a fork of [vue-agile by Łukasz Florczak](https://github.com/lukaszflorczak/vue-agile). Since he abandoned his project in February of 2023 I decided to publish my own version with some improvements (SSR Support and Vue3 only)
 
 > A carousel component for Vue.js inspired by [Slick](https://github.com/kenwheeler/slick/).<br>
 > Powerful, responsive, touch-friendly, with Nuxt.js SSR support, without a jQuery dependency.
 
-**[Demo & examples](https://lukaszflorczak.github.io/vue-agile/)**
-
-More demos and examples coming soon in [vue-agile CodePens collection](https://codepen.io/collection/AdRzJW/).
+**[Demo & examples](https://hoersamu.github.io/vue-agile/)**
 
 ---
 
-If you like the component remember to **star it** ⭐️. If you appreciate my work you can also **[buy me a coffee](https://ko-fi.com/lukaszflorczak)** ☕️ 😉
+If you like the component remember to **star it** ⭐️.
 
 ---
-
-🔭 If you're looking for Vue 2 version, check **[legacy/vue-v2](https://github.com/lukaszflorczak/vue-agile/tree/legacy/vue-v2)** branch.
 
 ![](https://florczak.dev/vue-agile/banner.png)
 
 ## Installation
 
 ```bash
-npm install vue-agile
+npm install vue3-agile
 ```
 
 or
 
 ```bash
-yarn add vue-agile
+yarn add vue3-agile
 ```
 
 ## Styles
@@ -66,9 +63,11 @@ export default {
 
 #### Via `<script>`
 
+> deprecated for now. I'll implement that later
+
 ```html
-<script src="https://unpkg.com/vue-agile"></script>
-<link rel="stylesheet" href="https://unpkg.com/vue-agile/dist/VueAgile.css">
+<script src="https://unpkg.com/vue3-agile"></script>
+<link rel="stylesheet" href="https://unpkg.com/vue3-agile/dist/VueAgile.css">
 ```
 
 ## Usage
@@ -95,28 +94,28 @@ Every first-level child of `<agile>` is a new slide. You also can group them ins
 
 | Parameter | Type | Default | Description |
 | --- | :---: | :---: | --- |
-| [asNavFor](#asNavFor) | array | `[]` | Set the carousel to be the navigation of other carousels | 
+| [asNavFor](#asNavFor) | array | `[]` | Set the carousel to be the navigation of other carousels |
 | autoplay | boolean | `false` | Enable autoplay |
-| autoplaySpeed | integer (ms) | `3000` | Autoplay interval in milliseconds | 
+| autoplaySpeed | integer (ms) | `3000` | Autoplay interval in milliseconds |
 | centerMode | boolean | `false` | Enable centered view when `slidesToShow` > `1` |
 | changeDelay | integer (ms) | `0` | Insert a delay when switching slides. Useful for `fade`: `true` |
 | dots | boolean | `true` | Enable dot indicators/pagination |
 | fade | boolean | `false` | Enable fade effect |
-| infinite | boolean | `true` | Infinite loop sliding | 
+| infinite | boolean | `true` | Infinite loop sliding |
 | initialSlide | integer | `0` | Index of slide to start on |
 | mobileFirst | boolean | `true` | Enable mobile first calculation for responsive settings |
 | navButtons | boolean | `true` | Enable prev/next navigation buttons |
-| options | object | `null` | All settings as one object | 
+| options | object | `null` | All settings as one object |
 | pauseOnDotsHover | boolean | `false` | Pause autoplay when a dot is hovered |
 | pauseOnHover | boolean | `true` | Pause autoplay when a slide is hovered |
-| [responsive](#Responsive) | object | `null` | Object containing breakpoints and settings objects | 
+| [responsive](#Responsive) | object | `null` | Object containing breakpoints and settings objects |
 | rtl | boolean | `false` | Enable right-to-left mode |
 | slidesToShow | integer | `1` | Number of slides to show |
-| speed | integer (ms) | `300` | Slide animation speed in milliseconds | 
-| swipeDistance | integer (px) | `50` | Distance to swipe the next slide | 
+| speed | integer (ms) | `300` | Slide animation speed in milliseconds |
+| swipeDistance | integer (px) | `50` | Distance to swipe the next slide |
 | throttleDelay | integer (ms) | `500` | Throttle delay for actions |
 | timing | string | `ease` | Transition timing function <br> (`linear`/`ease`/`ease-in`/`ease-out`/`ease-in-out`) |
-| unagile | boolean | `false` | Disable Agile carousel | 
+| unagile | boolean | `false` | Disable Agile carousel |
 
 #### Example
 
@@ -130,13 +129,13 @@ Every first-level child of `<agile>` is a new slide. You also can group them ins
 
 | Name | Description |
 | --- | --- |
-| `getCurrentBreakpoint()` | Returns current breakpoint (can returns `0` in mobile first for the smallest breakpoint and `null` for desktop first for the largest) | 
-| `getCurrentSettings()` | Returns settings object for current breakpoint – useful for debugging | 
-| `getCurrentSlide()` | Returns index of current slide | 
-| `getInitialSettings()` | Returns full settings object with all options – useful for debugging | 
+| `getCurrentBreakpoint()` | Returns current breakpoint (can returns `0` in mobile first for the smallest breakpoint and `null` for desktop first for the largest) |
+| `getCurrentSettings()` | Returns settings object for current breakpoint – useful for debugging |
+| `getCurrentSlide()` | Returns index of current slide |
+| `getInitialSettings()` | Returns full settings object with all options – useful for debugging |
 | `goTo()` | Navigates to a slide by index |
 | `goToNext()` | Navigates to next slide |
-| `goToPrev()` | Navigate to previous slide | 
+| `goToPrev()` | Navigate to previous slide |
 | `reload()` | Reload carousel & slides settings, classes and inline styles |
 
 #### Example
@@ -212,7 +211,7 @@ added to options from breakpoint before. And on screens over 900 px width `navBu
 
 ## Custom arrows / nav buttons
 
-From version `1.0` the component use slots for custom navigation buttons. It means you can put inside whatever you want – any HTML with text, image, icon etc.
+The component uses slots for custom navigation buttons. It means you can put inside whatever you want – any HTML with text, image, icon etc.
 
 #### Example
 
@@ -359,7 +358,7 @@ If you would like to connect this with params `slidesToShow` or `initialSlide` y
       width: 100%
 ```
 
-You can also check [nuxt-agile](https://github.com/lukaszflorczak/nuxt-agile) repository and check working demo of vue-agile with Nuxt and SSR.
+You can also check [nuxt-agile](https://github.com/hoersamu/nuxt-agile) repository and check working demo of vue-agile with Nuxt and SSR.
 
 ## FAQ
 
@@ -369,4 +368,4 @@ If content changes, you have to use `reload` or in some cases, you can use `key`
 
 #### 2. Support for IE11
 
-Yes, the UMD bundle is built with support for IE11. If you build your app with vue-agile as a dependency yourself be sure you configured babel properly (read more in [vue documentation](https://cli.vuejs.org/guide/browser-compatibility.html#browserslist) or just use my config for [babel](https://github.com/lukaszflorczak/vue-agile/blob/master/babel.config.js)). 
+Yes, the UMD bundle is built with support for IE11. If you build your app with vue-agile as a dependency yourself be sure you configured babel properly (read more in [vue documentation](https://cli.vuejs.org/guide/browser-compatibility.html#browserslist) or just use my config for [babel](https://github.com/hoersamu/vue-agile/blob/master/babel.config.js)).

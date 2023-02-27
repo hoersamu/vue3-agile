@@ -1,8 +1,8 @@
 {
-  "name": "vue-agile",
-  "version": "2.0.0",
+  "name": "vue3-agile",
+  "version": "0.1.0",
   "description": "A carousel component for Vue.js",
-  "author": "Łukasz Florczak <lukasz@florczak.dev>",
+  "author": "hoersamu (Samuel Höra)",
   "scripts": {
     "serve": "vue-cli-service serve --open ./demo/main.js",
     "test:unit": "vue-cli-service test:unit",
@@ -51,7 +51,7 @@
     "vue-jest": "^5.0.0-0"
   },
   "bugs": {
-    "url": "https://github.com/lukaszflorczak/vue-agile/issues"
+    "url": "https://github.com/hoersamu/vue3-agile/issues"
   },
   "keywords": [
     "vue",
@@ -63,6 +63,6 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lukaszflorczak/vue-agile.git"
+    "url": "git+https://github.com/hoersamu/vue3-agile.git"
   }
 }
