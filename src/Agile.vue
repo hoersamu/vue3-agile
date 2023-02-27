@@ -69,7 +69,7 @@
         slides: [],
         slidesClonedAfter: [],
         slidesClonedBefore: [],
-        isSSR: (typeof window === 'undefined'),
+        isSSR: false,
         transitionDelay: 0,
         translateX: 0,
         widthWindow: 0,
@@ -144,6 +144,10 @@
       widthSlide: function () {
         return (!this.settings.unagile) ? this.widthContainer / this.settings.slidesToShow : 'auto'
       }
+    },
+
+    created () {
+      this.isSSR = typeof window === 'undefined'
     },
 
     mounted () {
