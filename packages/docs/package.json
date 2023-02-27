@@ -1,0 +1,19 @@
+{
+  "name": "vue3-agile-docs",
+  "version": "0.1.1",
+  "private": true,
+  "description": "Docs for the Vue3-agile plugin",
+  "scripts": {
+    "docs:dev": "vitepress dev .",
+    "docs:build": "vitepress build .",
+    "docs:preview": "vitepress preview ."
+  },
+  "author": "hoersamu (Samuel Höra)",
+  "license": "MIT",
+  "dependencies": {
+    "sass": "^1.58.3",
+    "vitepress": "^1.0.0-alpha.48",
+    "vue": "^3.2.37",
+    "vue3-agile": "*"
+  }
+}

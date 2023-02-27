@@ -105,13 +105,13 @@
 </template>
 
 <script>
-import handlers from './mixins/handlers'
-import helpers from './mixins/helpers'
-import methods from './mixins/methods'
-import preparations from './mixins/preparations'
-import settings from './mixins/settings'
-import throttle from './mixins/throttle'
-import watchers from './mixins/watchers'
+import { handlers } from './mixins/handlers'
+import { helpers } from './mixins/helpers'
+import { methods } from './mixins/methods'
+import { preparations } from './mixins/preparations'
+import { settings } from './mixins/settings'
+import { throttle } from './mixins/throttle'
+import { watchers } from './mixins/watchers'
 
 export default {
   name: 'Agile',

@@ -4,7 +4,7 @@
 
 import orderBy from 'lodash.orderby'
 
-const mixin = {
+const settings = {
   props: {
     /**
      * Set the carousel to be the navigation of other carousels
@@ -254,4 +254,4 @@ const mixin = {
   },
 }
 
-export default mixin
+export { settings }
