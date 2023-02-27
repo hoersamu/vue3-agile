@@ -1,84 +1,54 @@
 module.exports = {
   root: true,
   env: {
-    node: true
+    browser: true,
+    node: true,
+    jest: true,
   },
   extends: [
-    'plugin:vue/vue3-essential',
+    'plugin:vue/recommended',
     '@vue/standard',
-    // '@vue/typescript/recommended'
+    '@vue/typescript/recommended',
   ],
   parserOptions: {
-    ecmaVersion: 2020
+    ecmaVersion: 2020,
+  },
+  globals: {
+    name: 'off',
   },
   rules: {
-    'indent': ['off'],
-		'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-		'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'vue/script-indent': ['error', 2, { baseIndent: 1, switchCase: 1 }],
-    'vue/html-closing-bracket-spacing': ['error', { selfClosingTag: 'never' }],
-    // 'vue/component-definition-name-casing': ['error', 'kebab-case'],
-    'vue/singleline-html-element-content-newline': ['off'],
-    'vue/require-default-prop': ['off'],
-    'vue/max-attributes-per-line': ['off'],
-    'vue/no-unused-components': ['warn'],
-    'no-unused-vars': ['warn'],
-    'vue/html-self-closing': ['warn', { html: { void: 'always' } }],
-    'curly': ['error', 'multi-line'],
-    'arrow-parens': ['warn', 'as-needed'],
-    'no-return-assign': ['off'],
-    'require-await': ['off'],
-    'vue/no-v-html': ['off'],
-    'quote-props': ['warn', 'consistent-as-needed'],
-    'vue/order-in-components': ['error', {
-      order: [
-        'el',
-        'name',
-        'key',
-        'parent',
-        'functional',
-        ['delimiters', 'comments'],
-        ['components', 'directives', 'filters'],
-        'icons',
-        'extends',
-        'mixins',
-        ['provide', 'inject'],
-        'ROUTER_GUARDS',
-        'layout',
-        'middleware',
-        'validations',
-        'validationConfig',
-        'scrollToTop',
-        'transition',
-        'loading',
-        'inheritAttrs',
-        'model',
-        ['props', 'propsData'],
-        'emits',
-        'setup',
-        'asyncData',
-        'head',
-        'data',
-        'fetch',
-        'computed',
-        'watch',
-        'watchQuery',
-        'LIFECYCLE_HOOKS',
-        'methods',
-        ['template', 'render'],
-        'renderError'
-      ]
-    }]
+    'arrow-parens': 0,
+    'generator-star-spacing': 0,
+    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
+    'comma-dangle': ['error', 'always-multiline'],
+    'vue/multi-word-component-names': 'off',
+    'vue/html-closing-bracket-newline': [
+      'error',
+      {
+        singleline: 'never',
+        multiline: 'always',
+      },
+    ],
+    'no-var': ['error'],
+    '@typescript-eslint/member-delimiter-style': [
+      'error',
+      {
+        multiline: {
+          delimiter: 'none',
+        },
+        singleline: {
+          delimiter: 'comma',
+        },
+      },
+    ],
+    '@typescript-eslint/ban-ts-comment': 'warn',
+    '@typescript-eslint/no-use-before-define': 'off',
+    'no-use-before-define': 'off',
+    '@typescript-eslint/indent': ['error', 2],
+    quotes: ['error', 'single', { allowTemplateLiterals: true }],
+    '@typescript-eslint/no-empty-function': 'off',
+    indent: 'off',
   },
-	overrides: [
-		{
-			files: [
-				'**/__tests__/*.{j,t}s?(x)',
-				'**/tests/unit/**/*.spec.{j,t}s?(x)'
-			],
-			env: {
-				jest: true
-			}
-		}
-	],
+  ignorePatterns: ['node_modules/', 'dist/', '!.*'],
+  plugins: ['prettier'],
 }

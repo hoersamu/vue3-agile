@@ -4,43 +4,26 @@
 name: test
 
 on:
-  - pull_request
+  pull_request:
+  push:
 
 jobs:
-  lint:
+  lint_and_test:
 
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [10.x]
+        node-version: [ 14, 16, 18 ]
+
+    name: Node ${{ matrix.node }} lint and test
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: lint
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm ci
-    - run: npm run lint
-      env:
-        CI: true
-
-  unit:
-
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [10.x]
-
-    steps:
-      - uses: actions/checkout@v2
-      - name: lint
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm ci
-      - run: npm run test:unit
-        env:
-          CI: true
+    - run: pnpm i --frozen-lockfile
+    - run: pnpm run lint
+    - run: pnpm run test
