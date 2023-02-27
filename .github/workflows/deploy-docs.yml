@@ -26,6 +26,7 @@ jobs:
         id: pnpm-install
         with:
           version: 7
+          run_install: false
 
       - name: Get pnpm store directory
         id: pnpm-cache
@@ -41,6 +42,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
+      - run: pnpm install --frozen-lockfile
       - name: Build vue3-agile
         run: pnpm run build
         working-directory: packages/vue3-agile
