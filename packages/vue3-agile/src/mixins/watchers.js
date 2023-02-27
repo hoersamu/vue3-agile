@@ -4,13 +4,13 @@
 const mixin = {
   watch: {
     // Recalculate settings
-    currentBreakpoint() {
+    currentBreakpoint () {
       // this.prepareSettings()
       this.$emit('breakpoint', { breakpoint: this.currentBreakpoint })
     },
 
     // Watch current slide change
-    currentSlide() {
+    currentSlide () {
       this.prepareSlidesClasses()
 
       // Set start time of slide
@@ -20,7 +20,7 @@ const mixin = {
     },
 
     // Watch drag distance change
-    dragDistance() {
+    dragDistance () {
       if (this.isMouseDown) {
         const { rtl } = this.settings
         const dragDistance = this.dragDistance * (rtl ? -1 : 1)
@@ -37,7 +37,7 @@ const mixin = {
       }
     },
 
-    isAutoplayPaused(nevValue) {
+    isAutoplayPaused (nevValue) {
       if (nevValue) {
         // Store current slide remaining time and disable auto play mode
         this.remaining =
@@ -55,20 +55,20 @@ const mixin = {
       }
     },
 
-    'settings.autoplay'() {
+    'settings.autoplay' () {
       this.toggleAutoPlay()
     },
 
-    'settings.fade'() {
+    'settings.fade' () {
       this.toggleFade()
     },
 
-    'settings.unagile'() {
+    'settings.unagile' () {
       // this.prepareSlides()
       // this.prepareCarousel()
     },
 
-    widthSlide() {
+    widthSlide () {
       for (let i = 0; i < this.countSlidesAll; i++) {
         // console.log(this.widthSlide)
         // console.log(this.settings)
@@ -79,7 +79,7 @@ const mixin = {
     },
 
     // Watch window width change
-    widthWindow(newValue, oldValue) {
+    widthWindow (newValue, oldValue) {
       if (oldValue) {
         this.prepareCarousel()
         this.toggleFade()

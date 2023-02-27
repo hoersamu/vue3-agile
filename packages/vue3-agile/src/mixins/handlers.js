@@ -3,7 +3,7 @@
  */
 const mixin = {
   methods: {
-    handleMouseDown(e) {
+    handleMouseDown (e) {
       this.isMouseDown = true
 
       if (e.type.indexOf('touch') !== -1) {
@@ -16,7 +16,7 @@ const mixin = {
       }
     },
 
-    handleMouseMove(e) {
+    handleMouseMove (e) {
       let positionX
       let positionY
       if (e.type.indexOf('touch') !== -1) {
@@ -35,12 +35,12 @@ const mixin = {
       }
     },
 
-    handleMouseUp() {
+    handleMouseUp () {
       this.isMouseDown = false
       this.enableScroll()
     },
 
-    handleMouseOver(element) {
+    handleMouseOver (element) {
       if (this.settings.autoplay) {
         if (
           (element === 'dot' && this.settings.pauseOnDotsHover) ||
@@ -51,7 +51,7 @@ const mixin = {
       }
     },
 
-    handleMouseOut(element) {
+    handleMouseOut (element) {
       if (this.settings.autoplay) {
         if (
           (element === 'dot' && this.settings.pauseOnDotsHover) ||

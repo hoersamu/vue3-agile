@@ -6,7 +6,7 @@ const mixin = {
     /**
      * Set window & container width
      */
-    getWidth() {
+    getWidth () {
       if (this.isSSR) {
         return false
       }
@@ -21,7 +21,7 @@ const mixin = {
     /**
      * Convert HTML Collection to JS Array
      */
-    htmlCollectionToArray(collection) {
+    htmlCollectionToArray (collection) {
       return Array.prototype.slice.call(collection, 0)
     },
   },

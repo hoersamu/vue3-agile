@@ -3,30 +3,30 @@
  */
 const mixin = {
   methods: {
-    clearAutoPlayPause() {
+    clearAutoPlayPause () {
       clearTimeout(this.autoplayTimeout)
       this.autoplayRemaining = null
     },
 
-    disableAutoPlay() {
+    disableAutoPlay () {
       clearInterval(this.autoplayInterval)
       this.autoplayInterval = null
     },
 
-    disableScroll() {
+    disableScroll () {
       document.ontouchmove = e => e.preventDefault()
     },
 
-    enableScroll() {
+    enableScroll () {
       document.ontouchmove = () => true
     },
 
-    restartAutoPlay() {
+    restartAutoPlay () {
       this.disableAutoPlay()
       this.toggleAutoPlay()
     },
 
-    toggleAutoPlay() {
+    toggleAutoPlay () {
       const enabled = !this.settings.unagile && this.settings.autoplay
 
       if (!this.autoplayInterval && enabled) {
@@ -44,7 +44,7 @@ const mixin = {
       }
     },
 
-    toggleFade() {
+    toggleFade () {
       const enabled = !this.settings.unagile && this.settings.fade
 
       for (let i = 0; i < this.countSlides; i++) {

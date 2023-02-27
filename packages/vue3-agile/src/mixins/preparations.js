@@ -6,7 +6,7 @@ const mixin = {
     /**
      * Prepare slides classes and styles
      */
-    prepareSlides() {
+    prepareSlides () {
       this.slides = this.htmlCollectionToArray(this.$refs.slides.children)
 
       // Probably timeout needed
@@ -27,7 +27,7 @@ const mixin = {
     /**
      *  Prepare slides active/current classes
      */
-    prepareSlidesClasses() {
+    prepareSlidesClasses () {
       if (this.currentSlide === null) {
         return false
       }
@@ -68,7 +68,7 @@ const mixin = {
     /**
      * Prepare carousel styles
      */
-    prepareCarousel() {
+    prepareCarousel () {
       // Prepare track
       if (this.settings.unagile) {
         this.translateX = 0

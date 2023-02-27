@@ -43,7 +43,7 @@ describe('Infinite mode:', () => {
   })
 
   describe('Disabled:', () => {
-    it("prev button on first slide shouldn't be available", async () => {
+    it('prev button on first slide shouldn\'t be available', async () => {
       const wrapper = shallowMount(Agile, {
         propsData: { ...propsData, infinite: false },
         slots,
@@ -52,7 +52,7 @@ describe('Infinite mode:', () => {
       expect(wrapper.vm.canGoToPrev).toBe(false)
     })
 
-    it("next button on last slide shouldn't be available", async () => {
+    it('next button on last slide shouldn\'t be available', async () => {
       const wrapper = shallowMount(Agile, {
         propsData: { ...propsData, infinite: false, initialSlide: 5 },
         slots,
