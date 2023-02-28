@@ -1,8 +1,8 @@
 ---
 layout: home
 
-title: VitePress
-titleTemplate: Vite & Vue Powered Static Site Generator
+title: Vue3-Agile
+titleTemplate: Vue powered carousel component
 
 hero:
   name: Vue3-Agile
