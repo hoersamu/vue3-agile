@@ -1,21 +1,19 @@
 # vue3-agile
 
-[![](https://img.shields.io/npm/v/vue3-agile.svg?style=flat-square&logo=npm)](https://www.npmjs.com/package/vue3-agile) [![](https://img.shields.io/npm/l/vue3-agile.svg?style=flat-square&logo=github)](https://github.com/hoersamu/vue3-agile/blob/master/LICENSE) [![](https://img.shields.io/npm/dm/vue-agile.svg?style=flat-square&logo=npm)](https://www.npmjs.com/package/vue-agile)
+[![](https://img.shields.io/npm/v/vue3-agile.svg?style=flat-square&logo=npm)](https://www.npmjs.com/package/vue3-agile) [![](https://img.shields.io/npm/l/vue3-agile.svg?style=flat-square&logo=github)](https://github.com/hoersamu/vue3-agile/blob/master/LICENSE) [![](https://img.shields.io/npm/dm/vue3-agile.svg?style=flat-square&logo=npm)](https://www.npmjs.com/package/vue3-agile)
 
 This is a fork of [vue-agile by Łukasz Florczak](https://github.com/lukaszflorczak/vue-agile). Since he abandoned his project in February of 2023 I decided to publish my own version with some improvements (SSR Support and Vue3 only)
 
 > A carousel component for Vue.js inspired by [Slick](https://github.com/kenwheeler/slick/).<br>
 > Powerful, responsive, touch-friendly, with Nuxt.js SSR support, without a jQuery dependency.
 
-**[Demo & examples](https://hoersamu.github.io/vue-agile/)**
+**[Demo & examples](https://hoersamu.github.io/vue3-agile/)**
 
 ---
 
 If you like the component remember to **star it** ⭐️.
 
 ---
-
-![](https://florczak.dev/vue-agile/banner.png)
 
 ## Installation
 
@@ -42,39 +40,31 @@ want, feel free to use styles from [CodePen demos](https://codepen.io/collection
 // main.js
 import { createApp } from 'vue'
 import App from './App.vue'
-import VueAgile from 'vue-agile'
+import VueAgile from 'vue3-agile'
 
 createApp(App)
   .use(VueAgile)
 ```
 
-#### In component
+#### Component
 
-```js
-// YourComponent.vue
-import { VueAgile } from 'vue-agile'
+```vue
+<template>
+  <Agile>
+    ...
+  </Agile>
+</template>
 
-export default {
-  components: {
-    agile: VueAgile
-  }
-}
-```
-
-#### Via `<script>`
-
-> deprecated for now. I'll implement that later
-
-```html
-<script src="https://unpkg.com/vue3-agile"></script>
-<link rel="stylesheet" href="https://unpkg.com/vue3-agile/dist/VueAgile.css">
+<script setup>
+import { Agile } from 'vue3-agile'
+<script>
 ```
 
 ## Usage
 
 ```vue
 <template>
-  <agile>
+  <Agile>
     <div class="slide">
       <h3>slide 1</h3>
     </div>
@@ -84,7 +74,7 @@ export default {
     <div class="slide">
       <h3>slide n</h3>
     </div>
-  </agile>
+  </Agile>
 </template>
 ```
 
@@ -157,7 +147,7 @@ Every first-level child of `<agile>` is a new slide. You also can group them ins
 #### Example
 
 ```vue
-<agile @after-change="showCurrentSlide($event)">...</agile>
+<Agile @after-change="showCurrentSlide($event)">...</Agile>
 ```
 
 ```js
@@ -175,7 +165,7 @@ To customize responsiveness, I recommend defining your desired breakpoints and p
 #### Example
 
 ```vue
-<agile :options="myOptions">...</agile>
+<Agile :options="myOptions">...</Agile>
 ```
 
 ```js
@@ -216,12 +206,12 @@ The component uses slots for custom navigation buttons. It means you can put ins
 #### Example
 
 ```vue
-<agile>
+<Agile>
 ... <!-- slides -->
 
 <template slot="prevButton">prev</template>
 <template slot="nextButton">next</template>
-</agile>
+</Agile>
 ```
 
 ## Caption
@@ -231,25 +221,21 @@ To display a static caption or such like within the gallery, you can use the `ca
 #### Example
 
 ```vue
-<agile @after-change="e => currentSlide = e.currentSlide">
+<Agile @after-change="e => currentSlide = e.currentSlide">
   ... <!-- slides -->
 
   <template slot="caption">{{ captions[currentSlide] }}</template>
-</agile>
+</Agile>
 
-<script>
-  export default {
-    data () {
-      return {
-        currentSlide: 0,
-        captions: [
-          'This is slide 1',
-          'This is the second slide',
-          'This is a third and final slide',
-        ]
-      }
-    }
-  }
+<script setup>
+  import { ref } from 'vue';
+
+  const currentSlide = ref(0);
+  const captions = [
+    'This is slide 1',
+    'This is the second slide',
+    'This is a third and final slide',
+  ];
 </script>
 ```
 
@@ -288,10 +274,10 @@ The component uses browser specific attributes (like `window` and `document`). H
 #### Example
 
 ```js
-// plugins/vue-agile.js
+// plugins/vue3-agile.js
 
 import Vue from 'vue'
-import VueAgile from 'vue-agile'
+import VueAgile from 'vue3-agile'
 
 Vue.use(VueAgile)
 ```
@@ -300,10 +286,10 @@ Vue.use(VueAgile)
 // nuxt.config.js
 
 export default {
-  plugins: ['~/plugins/vue-agile'],
+  plugins: ['~/plugins/vue3-agile'],
 
   build: {
-    transpile: ['vue-agile']
+    transpile: ['vue3-agile']
   }
 }
 ```
@@ -311,9 +297,9 @@ export default {
 To use component without SSR use the `client-only` component:
 
 ```vue
-<client-only placeholder="Loading...">
+<ClientOnly placeholder="Loading...">
   <agile>...</agile>
-</client-only>
+</ClientOnly>
 ```
 
 **Important!** Component rendered on server side has additional CSS class: `agile--ssr`, so you can use it to add some additional styles or manipulations. For example, I have limited options for setting the first appearance of the slides.
@@ -358,14 +344,8 @@ If you would like to connect this with params `slidesToShow` or `initialSlide` y
       width: 100%
 ```
 
-You can also check [nuxt-agile](https://github.com/hoersamu/nuxt-agile) repository and check working demo of vue-agile with Nuxt and SSR.
-
 ## FAQ
 
 #### 1. Using component with dynamic content
 
 If content changes, you have to use `reload` or in some cases, you can use `key` property: `<agile :key="mySlides.length">...</agile>` (it'll rebuild the carousel after each change of `mySlides` length).
-
-#### 2. Support for IE11
-
-Yes, the UMD bundle is built with support for IE11. If you build your app with vue-agile as a dependency yourself be sure you configured babel properly (read more in [vue documentation](https://cli.vuejs.org/guide/browser-compatibility.html#browserslist) or just use my config for [babel](https://github.com/hoersamu/vue-agile/blob/master/babel.config.js)).

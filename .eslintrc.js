@@ -48,6 +48,7 @@ module.exports = {
     quotes: ['error', 'single', { allowTemplateLiterals: true }],
     '@typescript-eslint/no-empty-function': 'off',
     indent: 'off',
+    'space-before-function-paren': 'off',
   },
   ignorePatterns: ['node_modules/', 'dist/', '!.*'],
   plugins: ['prettier'],

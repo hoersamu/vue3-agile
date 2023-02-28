@@ -1,10 +1,11 @@
-import VueAgile from './Agile.vue'
+import Agile from './Agile.vue'
+export { Agile }
 
 /* Vue plugin */
 
 const install = app => {
   // Components
-  app.component('Agile', VueAgile)
+  app.component('Agile', Agile)
 }
 
 const plugin = {
