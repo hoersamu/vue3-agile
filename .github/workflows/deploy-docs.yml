@@ -55,4 +55,4 @@ jobs:
           path: packages/docs/.vitepress/dist
       - name: Deploy
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v2
